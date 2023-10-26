@@ -1,12 +1,19 @@
+import FilterTodo from "./component/FilterTodo";
 import InputTodo from "./component/InputTodo";
 import ListTodo from "./component/ListTodo";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <InputTodo />
-      <ListTodo />
+      <div className="bg-slate-900">
+        <div className="flex justify-center">
+          <div className="border border-solid border-black rounded-sm w-[600px] min-h-screen pt-5 bg-white ">
+            <InputTodo />
+            <FilterTodo />
+            <ListTodo />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
