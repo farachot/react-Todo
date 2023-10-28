@@ -13,7 +13,7 @@ function todoReducer(state = initialValue, action) {
     case "SUKSES":
       return {
         ...state,
-        isLoading: true,
+        isLoading: false,
         todos: action.payload,
       };
 
