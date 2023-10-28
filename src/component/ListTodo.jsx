@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTodo } from "../redux/action/actionTodo";
+import { deleteTodo, getTodo } from "../redux/action/actionTodo";
 
 function ListTodo() {
   const dispatch = useDispatch();
@@ -21,7 +21,9 @@ function ListTodo() {
               <h1 className="pt-3">{item.name}</h1>
               <div className=" flex flex-wrap gap-1 justify-center mx-2 my-2">
                 <button className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-1 ">✏️</button>
-                <button className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-1 ">Hapus</button>
+                <button onClick={() => dispatch(deleteTodo(item.id))} className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-1 ">
+                  Hapus
+                </button>
               </div>
             </div>
           </div>
