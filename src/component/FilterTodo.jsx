@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { filterActive, filterDone, getTodo } from "../redux/action/actionTodo";
+import { filterALl, filterActive, filterDone, getTodo } from "../redux/action/actionTodo";
 
 function FilterTodo() {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ function FilterTodo() {
 
   return (
     <div className="flex gap-2 mx-2 mt-2">
-      <button onClick={() => dispatch(getTodo())} className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-2">
+      <button onClick={() => dispatch(filterALl())} className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-2">
         ALL
       </button>
       <button onClick={() => dispatch(filterActive())} className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-2">

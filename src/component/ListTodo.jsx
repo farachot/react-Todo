@@ -6,14 +6,22 @@ function ListTodo() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-  const { todos, isLoading } = useSelector((state) => state.todo);
-
+  const { todos, isLoading, status } = useSelector((state) => state.todo);
+  const filterTodos = todos.filter((item) => {
+    if (status === "all") {
+      return true;
+    } else if (status) {
+      return item.status === status;
+    } else if (status === false) {
+      return item.status === status;
+    }
+  });
   return (
     <>
       {isLoading ? (
         <div className="text-center mt-10">...loading</div>
       ) : (
-        todos.map((item) =>
+        filterTodos.map((item) =>
           item.edit ? (
             <div key={item.id} className="flex mt-5 border-y align-middle border-black">
               <div className="flex w-full justify-between">

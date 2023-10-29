@@ -3,6 +3,7 @@ import { getTodo } from "../action/actionTodo";
 const initialValue = {
   todos: [],
   isLoading: false,
+  status: "all",
 };
 
 function todoReducer(state = initialValue, action) {
@@ -22,17 +23,19 @@ function todoReducer(state = initialValue, action) {
       return {
         ...state,
         isLoading: false,
-        todos: state.todos.filter(function (item) {
-          return item.status === true;
-        }),
+        status: true,
       };
     case "AKTIF":
       return {
         ...state,
         isLoading: false,
-        todos: state.todos.filter(function (item) {
-          return item.status === false;
-        }),
+        status: false,
+      };
+    case "ALL":
+      return {
+        ...state,
+        isLoading: false,
+        status: "all",
       };
 
     default:

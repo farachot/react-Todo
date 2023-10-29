@@ -24,6 +24,12 @@ export function filterActive() {
     type: "AKTIF",
   };
 }
+// aksi ubah status menjadi all
+export function filterALl() {
+  return {
+    type: "ALL",
+  };
+}
 // aksi mendapat data dari API
 export function getTodo() {
   return async function (dispatch) {
@@ -64,27 +70,3 @@ export function editTodo(id, input) {
     dispatch(getTodo());
   };
 }
-
-// export function getDone() {
-//   return async function (dispatch) {
-//     dispatch(fetching());
-
-//     const { data } = await axios("https://652d214cf9afa8ef4b26d419.mockapi.io/dataorang");
-//     data.filter(function (item) {
-//       return item.status === true;
-//     });
-//     dispatch(filterDone(data));
-//   };
-// }
-
-// export function getActive() {
-//   return async function (dispatch) {
-//     dispatch(fetching());
-
-//     const { data } = await axios("https://652d214cf9afa8ef4b26d419.mockapi.io/dataorang");
-//     data.filter(function (item) {
-//       return item.status === true;
-//     });
-//     dispatch(filterActive(data));
-//   };
-// }
