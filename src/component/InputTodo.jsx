@@ -4,7 +4,9 @@ import { addTodo } from "../redux/action/actionTodo";
 
 function InputTodo() {
   const dispatch = useDispatch();
+  // use state untuk add todo
   const [input, setInput] = useState("");
+  // fungsi menambah todo baru
   function handleClick() {
     const newTodo = {
       name: input,

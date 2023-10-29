@@ -3,19 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTodo, editTodo } from "../redux/action/actionTodo";
 
 function ListTodo() {
+  // usestate untuk edit
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
+  // mengambil data dari reducer todo
   const { todos, isLoading, status } = useSelector((state) => state.todo);
+
+  // memfilter todos
   const filterTodos = todos.filter((item) => {
     if (status === "all") {
       return true;
-    } else if (status) {
-      return item.status === status;
-    } else if (status === false) {
-      return item.status === status;
-    }
+    } else return item.status === status;
   });
+
   return (
     <>
       {isLoading ? (
@@ -32,7 +33,7 @@ function ListTodo() {
                       dispatch(editTodo(item.id, { name: input, edit: false }));
                       setInput("");
                     }}
-                    className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-1 "
+                    className="border border-black rounded-sm bg-yellow-300 hover:bg-yellow-400 text-center p-1 mr-2 "
                   >
                     Edit
                   </button>
